@@ -1,0 +1,15 @@
+.rating-star {
+    display: inline-block;
+}
+
+.star {
+    cursor: pointer;
+}
+
+.filled {
+    color: gold;
+}
+
+.empty {
+    color: gray;
+}

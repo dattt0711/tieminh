@@ -1,0 +1,51 @@
+.home-header {
+  text-align: center;
+}
+
+.home-header h2 {
+  color: #0080ff;
+  font-size: 2rem;
+}
+
+.home-header h1 {
+  font-size: 3rem;
+  color: #0f52ba;
+  margin-bottom: 1rem;
+}
+
+.home-header h1 span {
+  color: #b0c4de;
+}
+
+.home-header p {
+  color: #000;
+  font-weight: 500;
+}
+
+.logo-text {
+  color: #7E22CE;
+  font-size: 24px;
+}
+
+.img-header {
+  background-color: #fff;
+}
+
+.box-header {
+  background-color: #C084FC;
+  border-radius: 30px;
+  width: 80% !important;
+}
+
+.left-box {
+  text-align: left;
+}
+
+.left-box h2 {
+  color: #fff;
+}
+
+.left-box p {
+  margin: 0;
+  color: #000;
+}
