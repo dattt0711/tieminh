@@ -7,14 +7,16 @@ const {
 } = require('../utils/common');
 router.get('/blogs/list', async (req, res) => {
     try {
-        const { page = 1, search } = req.query;
-        const limit = 10;
+        const { page , search, itemPerpage, category } = req.query;
         const conditions = {
-            isDeleted: "No"
+            isDeleted: "No",
         };
+        if (category) {
+            conditions['category'] = category
+        }
         conditions.$or = [
             { blogName: regExpSearch(search) },
-            { category: regExpSearch(search) },
+            // { category: regExpSearch(search) },
         ]
         const myCustomLabels = {
             totalDocs: 'itemCount',
@@ -33,7 +35,8 @@ router.get('/blogs/list', async (req, res) => {
                 createdAt: -1,
             },
             page: page,
-            limit: limit,
+            limit: itemPerpage,
+            skip: page,
             lean: true,
             populate,
             // select: fields,
@@ -52,7 +55,7 @@ router.get('/blogs/list', async (req, res) => {
 // related list
 router.get('/blogs/relatedList', async (req, res) => {
     try {
-        const { page = 1, category } = req.query;
+        const { page, category } = req.query;
         const limit = 3;
         const conditions = {
             isDeleted: "No",
@@ -166,6 +169,18 @@ router.delete('/blogs/delete', async (req, res) => {
             return res.json(responseSuccess("Delete a blog successfully!", deletedBlog));
         }
         return res.json(responseError("Delete a blog fail", {}))
+    } catch (err) {
+        console.log(err, 'err')
+        return res.json(responseError("Something went wrong!", err))
+    }
+})
+
+router.get('/blogs/categories', async (req, res) => {
+    try {
+        const categories = await BlogsModel.aggregate([
+            {"$group" : {_id:"$category", count:{$sum:1}}}
+        ]);
+        return res.json(responseSuccess("List of categories", categories))
     } catch (err) {
         console.log(err, 'err')
         return res.json(responseError("Something went wrong!", err))

@@ -24,13 +24,13 @@ input {
 }
 
 .wrapper {
-  background-color: #E9D5FF;
+  background-color: #f8f8f8;
   width: 100%;
 }
 
 .btn-grad {
   /* background-image: linear-gradient(to right, #fc00ff 0%, #00dbde 51%, #fc00ff 100%); */
-  background-color: #7E22CE !important;
+  background-color: #6127949d !important;
   margin: 10px;
   padding: 6px 20px !important;
   text-align: center;

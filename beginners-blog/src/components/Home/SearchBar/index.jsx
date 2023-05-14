@@ -1,18 +1,23 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './styles.css';
+import { Chip } from '@mui/material';
 
-const SearchBar = ({ formSubmit, value, handleSearchKey, clearSearch }) => (
+const SearchBar = ({ formSubmit, value, handleSearchKey, clearSearch }) => {
+  
+  return (
   <div className='searchBar-wrap'>
-    <form onSubmit={formSubmit}>
+    <form>
       <input
+        key={value}
         type='text'
-        placeholder='Search by blog name or category ...'
+        placeholder='Search by blog name...'
         value={value}
         onChange={handleSearchKey}
       />
-      {value && <span onClick={clearSearch}>X</span>}
+      <Chip color='primary' type='button' onClick={() => formSubmit()} label="Search"></Chip>
     </form>
   </div>
-);
+  )
+  };
 
 export default SearchBar;

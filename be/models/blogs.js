@@ -6,12 +6,14 @@ const { generatorTime } = require('../utils/common');
 const BlogSchema = new Schema({
     blogName: {
         type: String,
+        required: true
     },
     description: {
         type: String,
     },
     category: {
         type: String,
+        required: true
     },
     tags: [
         {
@@ -19,7 +21,8 @@ const BlogSchema = new Schema({
         }
     ],
     image: {
-        type: String
+        type: String,
+        required: true
     },
     isDeleted: {
         type: String, enum: ["Yes", "No"], default: "No"

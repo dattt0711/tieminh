@@ -1,5 +1,8 @@
 .home-header {
+  background-image: url('../../../images/top-view-desk-with-office-supplies.jpg');
+  background-repeat: no-repeat;
   text-align: center;
+  background-size: cover;
 }
 
 .home-header h2 {
@@ -23,7 +26,7 @@
 }
 
 .logo-text {
-  color: #7E22CE;
+  color: #64af7d;
   font-size: 24px;
 }
 
@@ -32,7 +35,6 @@
 }
 
 .box-header {
-  background-color: #C084FC;
   border-radius: 30px;
   width: 80% !important;
 }

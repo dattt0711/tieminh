@@ -7,6 +7,7 @@ const API_LIST_BLOG = "http://localhost:3003/blogs/list";
 const API_DELETE_BLOG = "http://localhost:3003/blogs/delete";
 const API_EDIT_BLOG = "http://localhost:3003/blogs/edit";
 const API_LIST_RELATED_BLOG = "http://localhost:3003/blogs/relatedList";
+const API_LIST_CATEGORY = "http://localhost:3003/blogs/categories";
 export const fetchCreateBlog = (params) => {
     const body = params;
     return axiosBodyToAPI('POST', API_CREATE_BLOG, body);
@@ -21,6 +22,9 @@ export const fetchListBlogsApi = (params = {}) => {
         queryParams = `?${queryString.stringify(params)}`;
     }
     return sendQueryToAPI(`${API_LIST_BLOG}${queryParams}`);
+};
+export const fetchListCategoryApi = () => {
+    return sendQueryToAPI(`${API_LIST_CATEGORY}`);
 };
 export const fetchRelatedListBlogsApi = (params = {}) => {
     let queryParams = '';

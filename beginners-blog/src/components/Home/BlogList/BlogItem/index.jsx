@@ -1,15 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Chip from '../../../common/Chip';
 import './styles.css';
+import { Chip } from '@mui/material';
 
 const BlogItem = ({
   blog: {
     description,
     blogName,
     createdAt,
-    authorName,
-    authorAvatar,
     image,
     category,
     _id,
@@ -18,7 +16,9 @@ const BlogItem = ({
   return (
     <div className='blogItem-wrap'>
       <img className='blogItem-cover mb-3' src={image} alt='image' />
-      <Chip label={category} />
+      <span>
+        <Chip variant="filled" color='primary' size='small' label={category} style={{ fontSize: '12px'}} />
+      </span>
       <h3>{blogName}</h3>
       <p className='blogItem-desc'>{description}</p>
       <footer>

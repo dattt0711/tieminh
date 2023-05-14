@@ -4,6 +4,10 @@
   grid-gap: 3rem;
 }
 
+.hovercursour {
+  cursor: pointer;
+}
+
 @media (max-width: 768px) {
   .blogList-wrap {
     grid-template-columns: repeat(2, 1fr);

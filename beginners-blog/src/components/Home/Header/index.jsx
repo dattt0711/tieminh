@@ -5,27 +5,11 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import SearchBar from '../SearchBar';
 import { Button } from 'react-bootstrap';
-import StarImage from '../../../images/star.png';
 const Header = (props) => {
-  const { handleOpenCreateModal } = props;
   return <header className='home-header'>
-    <Container>
+    <Container className='py-5'>
       <Row className="d-flex align-items-center mb-3">
-        <Col sm={2}>
-          <span className="logo-text">Your Blog</span>
-        </Col>
         <Col sm={8} >
-          <SearchBar
-          // value={searchKey}
-          // clearSearch={handleClearSearch}
-          // formSubmit={handleSearchBar}
-          // handleSearchKey={(e) => setSearchKey(e.target.value)}
-          />
-        </Col>
-        <Col sm={2}>
-          <div style={{ textAlign: 'right', margin: '20px 0' }}>
-            <Button onClick={() => handleOpenCreateModal()} className="btn-grad">Create</Button>
-          </div>
         </Col>
       </Row>
       <Row >
