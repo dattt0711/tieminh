@@ -8,6 +8,7 @@ import { fetchCreateBlog, fetchDeleteBlogApi, fetchListBlogsApi, fetchEditBlog, 
 import PaginationComponent from '../../components/common/Pagination/Pagination';
 import { Alert, Backdrop, CircularProgress, Snackbar } from '@mui/material';
 import { useLocation } from 'react-router-dom'
+import { red } from '@mui/material/colors';
 
 const initialValue = {
   blogName: '',
@@ -181,7 +182,7 @@ const Home = ({props}) => {
   }
 
   return (
-    <div>
+    <div  style={{backgroundColor: 'rgb(225 225 225)'}}>
       {/* Page Header */}
       <Header />
       <Backdrop
@@ -238,7 +239,6 @@ const Home = ({props}) => {
       </Snackbar>
       <div className='container mt-2'>
         {/* Blog List & Empty View */}
-        {!blogs.length ? <EmptyList /> :
           <BlogList categories={categories}
             selectedCategory={selectedCategory}
             handleFilterCaterogy={filterCategory}
@@ -248,11 +248,10 @@ const Home = ({props}) => {
             handleSearchKey={handleSetSearchKey}
             clearSearch={handleClearSearch}
             formSubmit={handleSearchBar}
-            age={page} />}
+            age={page} />
         <div className="d-flex justify-content-center mt-2">
           <PaginationComponent paginator={paginator} onPageChange={handleOnPageChange} itemPerPage={itemPerPage} />
         </div>
-
         <CreateModal
           show={show}
           handleClose={handleCloseCreateModal}

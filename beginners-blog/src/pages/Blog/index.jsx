@@ -58,7 +58,7 @@ const Blog = () => {
     const result = await fetchInfoBlogApi(id);
     if (result) {
       setBlog(result.data.data);
-      const tempTags = result.data.data.tags.map(tag => {
+      const tempTags = result.data.data?.tags.map(tag => {
         const findTag = options.find(op => op.value === tag);
         if (findTag) return findTag;
         return {
@@ -71,7 +71,7 @@ const Blog = () => {
         tags: tempTags,
       });
       const dataRelatedList = await fetchRelatedListBlogsApi({
-        category: result.data.data.category,
+        category: result.data.data?.category,
       })
       setRelatedList(dataRelatedList.data.data.items);
     }

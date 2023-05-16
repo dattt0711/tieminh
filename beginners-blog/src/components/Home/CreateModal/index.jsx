@@ -15,8 +15,8 @@ const CreateModal = (props) => {
             handleClose={handleClose}
             handleSubmit={handleSubmit}
         >
-            <Form>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form className='d-flex flex-wrap justify-content-around px-0'>
+                <Form.Group className="mb-3 col-5 px-0" controlId="formBasicEmail">
                     <Form.Label>Blog name</Form.Label>
                     <Form.Control
                         value={createParams.blogName}
@@ -26,7 +26,7 @@ const CreateModal = (props) => {
                         name="blogName"
                     />
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Group className="mb-3 col-5" controlId="formBasicEmail">
                     <Form.Label>Description</Form.Label>
                     <Form.Control
                         type="text"
@@ -36,7 +36,7 @@ const CreateModal = (props) => {
                         onChange={(event) => handleOnChange(event)}
                     />
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Group className="mb-3 col-5 px-0" controlId="formBasicEmail">
                     <Form.Label>Category</Form.Label>
                     <Form.Select
                         name="category"
@@ -53,7 +53,7 @@ const CreateModal = (props) => {
                         <option value="Art">Art</option>
                     </Form.Select>
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Group className="mb-3 col-5" controlId="formBasicEmail">
                     <Form.Label>Image url</Form.Label>
                     <Form.Control
                         type="text"
@@ -64,17 +64,18 @@ const CreateModal = (props) => {
                     />
                 </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Tags</Form.Label>
-                    <Select
-                        name="tags"
-                        options={options}
-                        isMulti
-                        placeholder="Select tags"
-                        value={createParams.tags}
-                        onChange={(event) => handleOnChange(event, "tags")}
-                    />
-                </Form.Group>
+                    <Form.Group className="mb-3 col-5" controlId="formBasicEmail">
+                        <Form.Label>Tags</Form.Label>
+                        <Select
+                            name="tags"
+                            options={options}
+                            isMulti
+                            placeholder="Select tags"
+                            value={createParams.tags}
+                            onChange={(event) => handleOnChange(event, "tags")}
+                        />
+                    </Form.Group>
+                    <Form.Group className="col-5" controlId="formBasicEmail" />
             </Form>
         </ModalComponent>
     )

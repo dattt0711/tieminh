@@ -46,3 +46,7 @@
 .tag-list {
   overflow: hidden;
 }
+
+.container-fluid {
+  background-color: #bbbaff;
+}

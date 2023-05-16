@@ -4,6 +4,7 @@ import './styles.css';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import { Button, Chip, FormControl, InputLabel, MenuItem, Select, Tooltip } from '@mui/material';
 import SearchBar from '../SearchBar';
+import EmptyList from '../../common/EmptyList';
 const BlogList = ({ blogs, handleOpenCreateModal, handleFilterCaterogy, categories, selectedCategory, searchKey, clearSearch, formSubmit, handleSearchKey }) => {
   const ITEM_HEIGHT = 48;
   const ITEM_PADDING_TOP = 8;
@@ -49,11 +50,11 @@ const BlogList = ({ blogs, handleOpenCreateModal, handleFilterCaterogy, categori
         </FormControl>
 
       </div>
-      <div className='col-10 px-0 mx-auto blogList-wrap'>
-        {blogs.map((blog) => (
-          <BlogItem blog={blog} />
-        ))}
-      </div>
+      {!blogs.length ? <EmptyList /> :
+        (<div className='col-10 px-0 mx-auto blogList-wrap'>
+          {blogs.map((blog) => (<BlogItem blog={blog} />))}
+        </div>)
+      }
     </div>
   );
 };
